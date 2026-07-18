@@ -680,10 +680,6 @@ checkoutBtn.addEventListener('click', () => {
     return;
   }
   
-  // Get contact details if filled
-  const name = document.getElementById('formName').value.trim() || 'Valued Customer';
-  const phone = document.getElementById('formPhone').value.trim() || 'Not Provided';
-  
   // Gather item quantities
   const counts = {};
   builderSlots.forEach(slot => {
@@ -700,26 +696,86 @@ checkoutBtn.addEventListener('click', () => {
   const boxTypeName = builderSize === 4 ? 'Small Box (4 Pcs)' : 'Large Box (9 Pcs)';
   const totalPriceVal = summaryTotal.textContent;
   
-  // Generate WhatsApp style checkout message
-  const checkoutMessage = `Hi Aurora Cocoa! 🍫 I would like to order a Custom Chocolate Box:\n\n` +
-                          `📦 Box Size: ${boxTypeName}\n` +
-                          `✨ Assortment Details:\n${itemDescription}` +
-                          `💰 Estimated Price: ₹${totalPriceVal}\n\n` +
-                          `👤 Name: ${name}\n` +
-                          `📞 Phone: ${phone}\n\n` +
-                          `Let's connect to confirm delivery!`;
-                          
-  // Copy to clipboard
-  navigator.clipboard.writeText(checkoutMessage).then(() => {
-    alert("Your custom chocolate box configuration has been copied to your clipboard! Paste it directly into the Instagram DM to message the business.");
-    // Open Instagram link
-    window.open("https://www.instagram.com/aurora.cocoa.chocolates?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", "_blank");
-  }).catch(err => {
-    console.error('Could not copy text: ', err);
-    // Fallback if clipboard fails: open link anyway with warning
-    window.open("https://www.instagram.com/aurora.cocoa.chocolates?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", "_blank");
-  });
+  showComingSoonModal(totalPriceVal, boxTypeName, itemDescription);
 });
+
+function showComingSoonModal(totalPriceVal, boxTypeName, itemDescription) {
+  const existing = document.getElementById('comingSoonModal');
+  if (existing) existing.remove();
+
+  const modal = document.createElement('div');
+  modal.id = 'comingSoonModal';
+  modal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(12, 5, 3, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  `;
+
+  const content = document.createElement('div');
+  content.className = 'glass-card';
+  content.style.cssText = `
+    max-width: 500px;
+    width: 90%;
+    padding: 3rem 2.2rem;
+    text-align: center;
+    border: 1px solid var(--color-gold-border);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  `;
+
+  content.innerHTML = `
+    <div style="font-size: 3.2rem; color: var(--color-gold);"><i class="fas fa-lock"></i></div>
+    <h3 style="font-size: 1.8rem; font-family: var(--font-heading); color: var(--color-text-light); line-height: 1.3;">Custom Ordering<br>Coming Soon</h3>
+    <p style="font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.6; margin: 0;">
+      We are busy setting up the logistics for custom batch orders! In the meantime, you can purchase any of our pre-configured gourmet boxes from the menu, or chat with us on WhatsApp for bulk inquiries.
+    </p>
+    <div style="width: 100%; border-top: 1px dashed rgba(212, 175, 55, 0.15); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.8rem;">
+      <button class="btn btn-primary" id="modalMenuBtn" style="width: 100%;">Browse Digital Menu</button>
+      <button class="btn btn-secondary" id="modalCloseBtn" style="width: 100%;">Close</button>
+    </div>
+  `;
+
+  modal.appendChild(content);
+  document.body.appendChild(modal);
+
+  // Trigger transition
+  setTimeout(() => {
+    modal.style.opacity = '1';
+    content.style.transform = 'scale(1)';
+  }, 10);
+
+  const closeModal = () => {
+    modal.style.opacity = '0';
+    content.style.transform = 'scale(0.9)';
+    setTimeout(() => modal.remove(), 300);
+  };
+
+  document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+  document.getElementById('modalMenuBtn').addEventListener('click', () => {
+    closeModal();
+    document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+}
 
 // --- Contact Form FormSubmit redirection ---
 window.handleFormSubmit = function(event) {
@@ -740,8 +796,14 @@ window.handleFormSubmit = function(event) {
 };
 
 // --- Initialization ---
-window.addEventListener('DOMContentLoaded', () => {
+function init() {
   renderMenu();
   changeBuilderBoxSize(4);
   renderBuilderChocolates();
-});
+}
+
+if (document.readyState === 'loading') {
+  window.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}

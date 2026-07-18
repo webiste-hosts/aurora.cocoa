@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Cocoa | Exquisite Dark Homemade Chocolates</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Indulge in premium, homemade dark chocolates by Aurora Cocoa. Handcrafted with passion, tempered to perfection. Customize your dream box today!">
+  <meta name="keywords" content="dark chocolate, homemade chocolate, artisan chocolate, custom chocolate box, Aurora Cocoa, premium chocolates">
+  <meta property="og:title" content="Aurora Cocoa | Exquisite Dark Homemade Chocolates">
+  <meta property="og:description" content="Indulge in premium, homemade dark chocolates by Aurora Cocoa. Handcrafted with passion, tempered to perfection. Customize your dream box today!">
+  <meta property="og:image" content="logo-coca.jpg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Custom Cursor Elements -->
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="custom-cursor-ring" id="customCursorRing"></div>
+
+  <!-- Header Section -->
+  <header id="header">
+    <div class="nav-container">
+      <a href="#" class="logo-wrap">
+        <img src="logo-coca.jpg" alt="Aurora Cocoa Logo" class="logo-img">
+        <span class="brand-name">AURORA <span>COCOA</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#menu">The Menu</a></li>
+        <li><a href="#builder">Box Builder</a></li>
+        <li><a href="#craft">The Craft</a></li>
+        <li><a href="#inquiry">Inquire</a></li>
+        <li><a href="https://www.instagram.com/aurora.cocoa.chocolates?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="nav-cta"><i class="fab fa-instagram"></i> Instagram</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg" style="background-image: url('cocao1.jpg');"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-tag">Pure Artisanal Luxury</span>
+        <h1 class="hero-title">
+          Handcrafted Dark
+          <span>Homemade Chocolates</span>
+        </h1>
+        <p class="hero-desc">
+          Tempered to perfection on marble slabs, made with premium cocoa and high-quality natural toppings. Taste the velvet smooth luxury of customizable chocolate assortments.
+        </p>
+        <div class="hero-actions">
+          <a href="#builder" class="btn btn-primary">Build Your Box</a>
+          <a href="#menu" class="btn btn-secondary">Explore Menu</a>
+        </div>
+      </div>
+      <div class="hero-image-area">
+        <div class="hero-image-frame">
+          <img src="cocoa3.jpg" alt="Premium chocolates background" class="hero-main-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="section" id="story">
+    <div class="story-grid">
+      <div class="story-text reveal">
+        <h2>Our Story</h2>
+        <p class="story-lead">
+          "Aurora Cocoa is born from a simple belief: that chocolate is not just a sweet treat, but a sensory experience that should be crafted with raw passion."
+        </p>
+        <p class="story-paragraph">
+          We take the finest single-origin dark cocoa beans, roasting and stone-grinding them in small batches. Our tempering process is entirely hand-guided on marble slabs, ensuring that crisp snap and glossy sheen that distinguishes premium chocolate.
+        </p>
+        <p class="story-paragraph">
+          From whole roasted almonds and crushed cookies to exotic fruit-and-nut medleys or traditional gulkand inclusions, every ingredient is selected to create a harmonious blend of textures and depth.
+        </p>
+        <span class="story-signature">Aurora Cocoa Chocolates</span>
+      </div>
+      <div class="story-image-area reveal">
+        <div class="story-img-card tall">
+          <img src="coca2.jpg" alt="Box of gourmet chocolates">
+        </div>
+        <div class="story-img-card">
+          <img src="cocao1.jpg" alt="Almond chocolate cluster stack">
+        </div>
+        <div class="story-img-card">
+          <img src="logo-coca.jpg" alt="Aurora Cocoa Logo detail">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="section" id="menu">
+    <h2>The Digital Menu</h2>
+    
+    <div class="menu-controls">
+      <ul class="menu-filters">
+        <li><button class="filter-btn active" data-filter="all">All Items</button></li>
+        <li><button class="filter-btn" data-filter="classic">Classic</button></li>
+        <li><button class="filter-btn" data-filter="nuts">Roasted Nuts</button></li>
+        <li><button class="filter-btn" data-filter="exotic">Fruits & Delights</button></li>
+        <li><button class="filter-btn" data-filter="crunchy">Crunch & Crackle</button></li>
+      </ul>
+      
+      <div class="size-toggle-wrap" id="sizeToggleWrap">
+        <button class="size-btn active" id="btnSmallSize">Small Box (4 Pcs)</button>
+        <button class="size-btn" id="btnLargeSize">Large Box (9 Pcs)</button>
+        <div class="size-slider"></div>
+      </div>
+    </div>
+
+    <div class="menu-grid reveal" id="menuGrid">
+      <!-- Dynamically filled by Javascript -->
+    </div>
+  </section>
+
+  <!-- Custom Box Builder Section -->
+  <section class="section" id="builder">
+    <h2>Custom Box Builder</h2>
+    
+    <div class="builder-relative-wrapper">
+      <!-- Coming Soon Overlay -->
+      <div class="builder-coming-soon-overlay reveal">
+        <div class="coming-soon-badge">
+          <i class="fas fa-lock"></i>
+          <span>Coming Soon</span>
+        </div>
+        <h3>Curate Your Custom Assortment</h3>
+        <p>Design your dream box of chocolates. Select your box size (4 or 9 pieces) and handpick from our wide selection of classic, roasted nuts, exotic fruits, and crunchy flavors.</p>
+        <a href="#menu" class="btn btn-primary">Browse Digital Menu</a>
+      </div>
+
+      <div class="builder-grid blurred-content">
+      <!-- Workspace: Visual box preview -->
+      <div class="builder-workspace reveal">
+        <div class="builder-controls">
+          <button class="box-size-btn active" data-size="4">
+            Small Box
+            <span>4 Slots</span>
+          </button>
+          <button class="box-size-btn" data-size="9">
+            Large Box
+            <span>9 Slots</span>
+          </button>
+        </div>
+
+        <div class="box-container">
+          <div class="box-wood-border"></div>
+          <div class="box-grid small-box" id="boxGridDisplay">
+            <!-- Slots dynamically populated -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Selection panel -->
+      <div class="builder-panel glass-card reveal">
+        <h3>Design Your Assortment</h3>
+        <p class="builder-panel-subtitle">Select a slot on the left, then click any chocolate flavor below to add it.</p>
+        
+        <div class="builder-selector-tabs" id="builderTabs">
+          <button class="builder-tab active" data-category="all">All</button>
+          <button class="builder-tab" data-category="classic">Classics</button>
+          <button class="builder-tab" data-category="nuts">Nuts</button>
+          <button class="builder-tab" data-category="exotic">Exotic</button>
+          <button class="builder-tab" data-category="crunchy">Crunchy</button>
+        </div>
+
+        <div class="builder-scroller" id="builderChocScroller">
+          <!-- Filled dynamically by Javascript -->
+        </div>
+
+        <div class="builder-summary">
+          <div class="summary-row">
+            <span>Box Size:</span>
+            <span id="summaryBoxSize">Small Box (4 Pcs)</span>
+          </div>
+          <div class="summary-row">
+            <span>Filled Slots:</span>
+            <span id="summarySlotsFilled">0 / 4</span>
+          </div>
+          <div class="summary-row total">
+            <span>Estimated Price:</span>
+            <span class="total-price" id="summaryTotal">0</span>
+          </div>
+          <button class="btn btn-primary checkout-btn" id="checkoutBtn">
+            <i class="fab fa-instagram"></i> Order Via Instagram
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- The Craft Section -->
+  <section class="section" id="craft">
+    <h2>The Craft of Chocolate</h2>
+    
+    <div class="craft-container">
+      <!-- Animated SVG Viewer -->
+      <div class="craft-viewer glass-card reveal">
+        
+        <!-- Stage 1: Cocoa Harvesting -->
+        <svg class="craft-stage-art active" id="stage1-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="cocoaPodGrad" cx="50%" cy="40%" r="50%">
+              <stop offset="0%" stop-color="#8d5b4c"/>
+              <stop offset="100%" stop-color="#46251b"/>
+            </radialGradient>
+          </defs>
+          <!-- Background glow -->
+          <circle cx="200" cy="200" r="160" fill="rgba(212, 175, 55, 0.03)" stroke="rgba(212, 175, 55, 0.08)" stroke-width="1"/>
+          
+          <!-- Pod group Left -->
+          <g class="svg-pod-left">
+            <path d="M120,130 C120,80 180,80 190,130 C200,180 185,270 120,290 C80,240 120,180 120,130 Z" fill="url(#cocoaPodGrad)" stroke="#23110a" stroke-width="2"/>
+            <path d="M140,110 Q160,110 160,140 Q160,200 135,240" fill="none" stroke="#23110a" stroke-width="1.5" stroke-linecap="round"/>
+          </g>
+          
+          <!-- Pod group Right -->
+          <g class="svg-pod-right">
+            <path d="M280,130 C280,80 220,80 210,130 C200,180 215,270 280,290 C320,240 280,180 280,130 Z" fill="url(#cocoaPodGrad)" stroke="#23110a" stroke-width="2"/>
+            <path d="M260,110 Q240,110 240,140 Q240,200 265,240" fill="none" stroke="#23110a" stroke-width="1.5" stroke-linecap="round"/>
+          </g>
+
+          <!-- Branch stem -->
+          <path d="M200,40 Q200,80 190,110" fill="none" stroke="#5d4037" stroke-width="8" stroke-linecap="round"/>
+
+          <!-- Falling cocoa beans inside -->
+          <g class="svg-beans">
+            <ellipse class="svg-bean" cx="170" cy="180" rx="8" ry="12" fill="#c39b8f" transform="rotate(15, 170, 180)"/>
+            <ellipse class="svg-bean" cx="230" cy="190" rx="9" ry="14" fill="#d2b48c" transform="rotate(-25, 230, 190)"/>
+            <ellipse class="svg-bean" cx="190" cy="230" rx="7" ry="11" fill="#c39b8f" transform="rotate(5, 190, 230)"/>
+            <ellipse class="svg-bean" cx="210" cy="260" rx="8" ry="13" fill="#e8d8c8" transform="rotate(35, 210, 260)"/>
+          </g>
+        </svg>
+
+        <!-- Stage 2: Roasting & Grinding -->
+        <svg class="craft-stage-art" id="stage2-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="200" cy="200" r="160" fill="rgba(212, 175, 55, 0.03)" stroke="rgba(212, 175, 55, 0.08)" stroke-width="1"/>
+          
+          <!-- Furnace base -->
+          <rect x="130" y="240" width="140" height="70" rx="15" fill="#1e1e1e" stroke="#d4af37" stroke-width="1.5"/>
+          <!-- Fire glows inside furnace -->
+          <path d="M160,285 Q175,260 200,285 Q225,260 240,285" fill="none" stroke="#e65100" stroke-width="5" stroke-linecap="round"/>
+          <path d="M175,285 Q190,270 200,285 Q210,270 225,285" fill="none" stroke="#ffb300" stroke-width="3" stroke-linecap="round"/>
+          
+          <!-- Roasting Drum -->
+          <g class="svg-drum">
+            <circle cx="200" cy="180" r="60" fill="#2d150b" stroke="#d4af37" stroke-width="3"/>
+            <!-- Vent holes/texture on drum -->
+            <circle cx="160" cy="180" r="5" fill="#110805"/>
+            <circle cx="240" cy="180" r="5" fill="#110805"/>
+            <circle cx="200" cy="140" r="5" fill="#110805"/>
+            <circle cx="200" cy="220" r="5" fill="#110805"/>
+            <line x1="160" y1="180" x2="240" y2="180" stroke="rgba(212, 175, 55, 0.3)" stroke-width="2"/>
+            <line x1="200" y1="140" x2="200" y2="220" stroke="rgba(212, 175, 55, 0.3)" stroke-width="2"/>
+          </g>
+
+          <!-- Steam waves rising -->
+          <g class="steam-group">
+            <path class="svg-steam" d="M190,100 Q195,80 190,60" fill="none" stroke="#bcaba0" stroke-width="2" stroke-linecap="round"/>
+            <path class="svg-steam" d="M210,95 Q215,75 210,55" fill="none" stroke="#bcaba0" stroke-width="2" stroke-linecap="round"/>
+          </g>
+        </svg>
+
+        <!-- Stage 3: Tempering slab -->
+        <svg class="craft-stage-art" id="stage3-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="200" cy="200" r="160" fill="rgba(212, 175, 55, 0.03)" stroke="rgba(212, 175, 55, 0.08)" stroke-width="1"/>
+          
+          <!-- Marble slab table -->
+          <polygon points="80,260 320,260 350,300 50,300" fill="#e0e0e0" stroke="#757575" stroke-width="2"/>
+          <polygon points="50,300 350,300 350,315 50,315" fill="#9e9e9e"/>
+
+          <!-- Melted Chocolate Layer -->
+          <path class="svg-tempering-choc" d="M120,260 C150,230 250,230 280,260 L290,285 C250,300 150,300 110,285 Z" fill="#2d150b" stroke="#1c0a04" stroke-width="1.5"/>
+
+          <!-- Tempering Spatula scraper -->
+          <g class="svg-spatula">
+            <path d="M185,160 L215,160 L210,225 L190,225 Z" fill="#bcaba0" stroke="#757575" stroke-width="1.5"/>
+            <rect x="195" y="100" width="10" height="60" rx="3" fill="#5d4037" stroke="#3e2723" stroke-width="1"/>
+          </g>
+        </svg>
+
+        <!-- Stage 4: Molding & Inclusions -->
+        <svg class="craft-stage-art" id="stage4-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="200" cy="200" r="160" fill="rgba(212, 175, 55, 0.03)" stroke="rgba(212, 175, 55, 0.08)" stroke-width="1"/>
+          
+          <!-- Chocolate mold container -->
+          <rect x="100" y="240" width="200" height="60" rx="6" fill="#0f0f0f" stroke="#d4af37" stroke-width="2"/>
+          
+          <!-- Individual mold dividers -->
+          <line x1="150" y1="240" x2="150" y2="300" stroke="#d4af37" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="200" y1="240" x2="200" y2="300" stroke="#d4af37" stroke-width="1" stroke-dasharray="3,3"/>
+          <line x1="250" y1="240" x2="250" y2="300" stroke="#d4af37" stroke-width="1" stroke-dasharray="3,3"/>
+
+          <!-- Filling mold layers (animated) -->
+          <rect x="105" y="260" width="40" height="35" rx="3" fill="#3e2723"/>
+          <rect x="155" y="260" width="40" height="35" rx="3" fill="#3e2723"/>
+          <rect x="205" y="260" width="40" height="35" rx="3" fill="#3e2723"/>
+          
+          <!-- Pouring nozzle -->
+          <path d="M225,60 L225,120 L215,135 L235,135 Z" fill="#b0bec5" stroke="#37474f" stroke-width="2"/>
+          <!-- Nozzle liquid stream -->
+          <line class="svg-nozzle-stream" x1="225" y1="135" x2="225" y2="260" stroke="#3e2723" stroke-width="8" stroke-linecap="round"/>
+
+          <!-- Toppings dropping in -->
+          <g class="toppings-inclusions">
+            <!-- Almonds -->
+            <path class="svg-topping" d="M125,270 Q120,258 125,250 Q130,258 125,270" fill="#a1887f" stroke="#5d4037" stroke-width="1"/>
+            <path class="svg-topping" d="M175,272 Q170,260 175,252 Q180,260 175,272" fill="#a1887f" stroke="#5d4037" stroke-width="1"/>
+            <!-- Cookie Crumbs -->
+            <circle class="svg-topping" cx="225" cy="275" r="2.5" fill="#110805"/>
+            <circle class="svg-topping" cx="220" cy="270" r="1.5" fill="#110805"/>
+            <circle class="svg-topping" cx="230" cy="272" r="2" fill="#110805"/>
+          </g>
+        </svg>
+
+        <!-- Stage 5: Packaging & Ribbons -->
+        <svg class="craft-stage-art" id="stage5-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="200" cy="200" r="160" fill="rgba(212, 175, 55, 0.03)" stroke="rgba(212, 175, 55, 0.08)" stroke-width="1"/>
+          
+          <!-- Bottom box base -->
+          <path d="M110,230 L290,230 L275,290 L125,290 Z" fill="#20100a" stroke="#d4af37" stroke-width="2"/>
+          <line x1="125" y1="290" x2="110" y2="230" stroke="#d4af37" stroke-width="1"/>
+          <line x1="275" y1="290" x2="290" y2="230" stroke="#d4af37" stroke-width="1"/>
+
+          <!-- Chocolates nested inside -->
+          <rect x="135" y="240" width="30" height="30" rx="6" fill="#3e2723"/>
+          <rect x="185" y="240" width="30" height="30" rx="6" fill="#1c0a04"/>
+          <rect x="235" y="240" width="30" height="30" rx="6" fill="#3e2723"/>
+
+          <!-- Box lid (closes down) -->
+          <g class="svg-box-lid">
+            <path d="M100,160 L300,160 L295,195 L105,195 Z" fill="#1c0a04" stroke="#d4af37" stroke-width="2"/>
+            <!-- Golden Logo detail on lid -->
+            <path d="M200,167 L193,185 L207,185 Z" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+            <circle cx="200" cy="180" r="3" fill="#d4af37"/>
+          </g>
+
+          <!-- Golden Ribbon binding -->
+          <path class="svg-ribbon-path" d="M200,195 L200,290 M117,260 L282,260" fill="none" stroke="#ffd700" stroke-width="6" stroke-linecap="round"/>
+          
+          <!-- Ribbon Bow top -->
+          <g class="svg-topping">
+            <path d="M200,195 C180,180 180,210 200,195 C220,180 220,210 200,195 Z" fill="#ffd700" stroke="#b28e24" stroke-width="1"/>
+            <circle cx="200" cy="195" r="4.5" fill="#ffd700"/>
+          </g>
+        </svg>
+
+      </div>
+
+      <!-- Control triggers & details -->
+      <div class="craft-info-wrap reveal">
+        <div class="craft-steps-nav">
+          <button class="craft-step-trigger active" data-stage="1">
+            <span class="craft-step-num">01</span>
+            <div class="craft-step-details">
+              <h4>Bean Harvesting & Selection</h4>
+              <p>We source single-origin dark cocoa beans, ensuring sustainable harvesting and grading only the plumpest, flawless beans.</p>
+            </div>
+          </button>
+          <button class="craft-step-trigger" data-stage="2">
+            <span class="craft-step-num">02</span>
+            <div class="craft-step-details">
+              <h4>Slow Roasting & Grinding</h4>
+              <p>Beans are roasted carefully to unlock dynamic earthy notes, then stone-ground continuously to yield a smooth, glossy chocolate liquor.</p>
+            </div>
+          </button>
+          <button class="craft-step-trigger" data-stage="3">
+            <span class="craft-step-num">03</span>
+            <div class="craft-step-details">
+              <h4>Artisanal Slab Tempering</h4>
+              <p>Melted chocolate is folded continuously on heavy marble slabs, bringing down temperatures carefully to create a firm, satisfying snap.</p>
+            </div>
+          </button>
+          <button class="craft-step-trigger" data-stage="4">
+            <span class="craft-step-num">04</span>
+            <div class="craft-step-details">
+              <h4>Molding & Inclusions</h4>
+              <p>Tempered chocolate flows into custom molds. While setting, toppings like whole roasted nuts, crushed cookies, or fruits are carefully hand-embedded.</p>
+            </div>
+          </button>
+          <button class="craft-step-trigger" data-stage="5">
+            <span class="craft-step-num">05</span>
+            <div class="craft-step-details">
+              <h4>Boutique Packaging</h4>
+              <p>Each box is set with custom flavor separators, wrapped carefully in protective layers, and hand-finished with our signature gold ribbon.</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Feed Showcase -->
+  <section class="section ig-section" id="social">
+    <h2>Follow Our Instagram</h2>
+    <p>Get a glimpse of daily batches, behind the scenes tempering, and seasonal specials.</p>
+    
+    <div class="ig-grid reveal">
+      <a href="https://www.instagram.com/aurora.cocoa.chocolates?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="ig-card">
+        <img src="cocao1.jpg" alt="Instagram Post - Classic Chocolates">
+        <div class="ig-overlay">
+          <i class="fab fa-instagram"></i>
+          <span>View Post</span>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/aurora.cocoa.chocolates?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="ig-card">
+        <img src="coca2.jpg" alt="Instagram Post - Gulkand Truffles">
+        <div class="ig-overlay">
+          <i class="fab fa-instagram"></i>
+          <span>View Post</span>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/aurora.cocoa.chocolates?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="ig-card">
+        <img src="cocoa3.jpg" alt="Instagram Post - Roasted Almond Bark">
+        <div class="ig-overlay">
+          <i class="fab fa-instagram"></i>
+          <span>View Post</span>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/aurora.cocoa.chocolates?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="ig-card">
+        <img src="logo-coca.jpg" alt="Instagram Post - Aurora Cocoa Brand Logo">
+        <div class="ig-overlay">
+          <i class="fab fa-instagram"></i>
+          <span>View Post</span>
+        </div>
+      </a>
+    </div>
+
+    <a href="https://www.instagram.com/aurora.cocoa.chocolates?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn btn-secondary"><i class="fab fa-instagram"></i> @aurora.cocoa.chocolates</a>
+  </section>
+
+  <!-- Inquiry & Contact Section -->
+  <section class="section" id="inquiry">
+    <div class="glass-card inquiry-form reveal">
+      <h3 class="form-title">Order & Inquiry</h3>
+      <p class="form-subtitle">Send your request details and we will coordinate custom booking & delivery options.</p>
+      
+      <form id="contactForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <input type="text" id="formName" class="form-input" placeholder=" " required>
+          <label for="formName" class="form-label">Full Name</label>
+        </div>
+        
+        <div class="form-group" style="margin-top: 1.8rem;">
+          <input type="tel" id="formPhone" class="form-input" placeholder=" " required>
+          <label for="formPhone" class="form-label">Phone Number</label>
+        </div>
+
+        <div class="form-group" style="margin-top: 1.8rem;">
+          <textarea id="formMessage" class="form-input" placeholder=" " required></textarea>
+          <label for="formMessage" class="form-label">Order Details (e.g. 1x Custom Large Box, 2x Classic Small Box)</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Send Inquiry via WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img src="logo-coca.jpg" alt="Aurora Cocoa Logo" class="footer-logo-img">
+          <span class="footer-brand-name">AURORA <span>COCOA</span></span>
+        </div>
+        <p class="footer-desc">
+          Artisanal, dark homemade chocolates made with organic cocoa, premium nuts, and natural ingredients. Custom curation for all corporate, wedding, and celebration boxes.
+        </p>
+      </div>
+
+      <div class="footer-nav">
+        <h4 class="footer-nav-title">Explore</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#menu">Digital Menu</a></li>
+          <li><a href="#builder">Box Builder</a></li>
+          <li><a href="#craft">Crafting Stages</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-nav">
+        <h4 class="footer-nav-title">Menu Pricing</h4>
+        <ul>
+          <li>Classics (Small: ₹60+ | Large: ₹125+)</li>
+          <li>Roasted Almond (Small: ₹65+ | Large: ₹135+)</li>
+          <li>Nutty Delights (Small: ₹80+ | Large: ₹155+)</li>
+          <li>Crunchy & Crackle (Small: ₹70+ | Large: ₹135+)</li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4 class="footer-nav-title">Contact</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Homemade in India</p>
+        <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/aurora.cocoa.chocolates?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">Instagram Profile</a></p>
+        <p><i class="fas fa-envelope"></i> contact@auroracocoa.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Aurora Cocoa Chocolates. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/aurora.cocoa.chocolates?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>

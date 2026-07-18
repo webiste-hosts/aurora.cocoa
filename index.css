@@ -28,6 +28,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* Offset for fixed header when scrolling via hash links */
   background-color: var(--color-bg-darkest);
   color: var(--color-text-cream);
   font-family: var(--font-body);
@@ -603,7 +604,7 @@ header.scrolled {
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
   gap: 2.5rem;
 }
 
@@ -1579,8 +1580,31 @@ textarea.form-input {
   h2 { font-size: 2.2rem; }
   .section { padding: 5rem 1.5rem; }
   
-  .nav-links { display: none; }
-  .menu-toggle { display: block; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(12, 5, 3, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1.5px solid var(--color-gold-border);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.85);
+    text-align: center;
+    z-index: 100;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
   
   .hero-container {
     flex-direction: column;
@@ -1635,6 +1659,7 @@ textarea.form-input {
   .footer-brand { grid-column: span 1; }
   
   .inquiry-form { padding: 2rem 1.2rem; }
+  .menu-item-card { padding: 1.5rem; }
 }
 
 /* Custom Box Builder Coming Soon Styles */

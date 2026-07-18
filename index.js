@@ -344,7 +344,7 @@ window.addEventListener('scroll', () => {
 const menuToggle = document.getElementById('menuToggle');
 const navLinks = document.getElementById('navLinks');
 menuToggle.addEventListener('click', () => {
-  navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+  navLinks.classList.toggle('active');
 });
 
 // --- Scroll reveals ---
@@ -396,7 +396,7 @@ function renderMenu() {
     const sizeLabel = selectedSize === 'small' ? 'Box of 4 Pcs' : 'Box of 9 Pcs';
     
     const card = document.createElement('div');
-    card.className = 'menu-item-card glass-card reveal';
+    card.className = 'menu-item-card glass-card';
     card.innerHTML = `
       <div class="menu-item-header">
         <h3 class="menu-item-name">${item.name}</h3>
@@ -414,7 +414,6 @@ function renderMenu() {
       </div>
     `;
     menuGrid.appendChild(card);
-    revealObserver.observe(card);
   });
   setupCursorHovers();
 }

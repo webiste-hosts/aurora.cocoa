@@ -807,3 +807,67 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
+
+// --- Ambient Music Controller ---
+const musicToggleBtn = document.getElementById('musicToggleBtn');
+const bgMusic = document.getElementById('bgMusic');
+
+let isMusicPlaying = false;
+
+// Set default volume (soft background level)
+bgMusic.volume = 0.3;
+
+function playMusic() {
+  bgMusic.play()
+    .then(() => {
+      isMusicPlaying = true;
+      musicToggleBtn.classList.remove('muted');
+      musicToggleBtn.classList.add('playing');
+    })
+    .catch(err => {
+      console.log("Autoplay blocked by browser. Music will start on first user interaction.");
+    });
+}
+
+function pauseMusic() {
+  bgMusic.pause();
+  isMusicPlaying = false;
+  musicToggleBtn.classList.remove('playing');
+  musicToggleBtn.classList.add('muted');
+}
+
+// Auto-play attempt on page load
+window.addEventListener('load', () => {
+  setTimeout(playMusic, 1000);
+});
+
+// Gesture fallback: Autoplay starts on first click, scroll, or tap
+const startOnFirstGesture = () => {
+  if (!isMusicPlaying) {
+    playMusic();
+  }
+  document.removeEventListener('click', startOnFirstGesture);
+  document.removeEventListener('scroll', startOnFirstGesture);
+  document.removeEventListener('touchstart', startOnFirstGesture);
+};
+
+document.addEventListener('click', startOnFirstGesture);
+document.addEventListener('scroll', startOnFirstGesture);
+document.addEventListener('touchstart', startOnFirstGesture);
+
+// Toggle click handler
+musicToggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // Avoid triggering the gesture fallback listener
+  
+  // Remove event listeners so it doesn't trigger again
+  document.removeEventListener('click', startOnFirstGesture);
+  document.removeEventListener('scroll', startOnFirstGesture);
+  document.removeEventListener('touchstart', startOnFirstGesture);
+
+  if (isMusicPlaying) {
+    pauseMusic();
+  } else {
+    playMusic();
+  }
+});
+
